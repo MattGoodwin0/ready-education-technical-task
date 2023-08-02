@@ -9,19 +9,28 @@
   <div class="card-collection">
     <div class="user-card" *ngFor="let user of userData">
       <div class="pill">
-        <span class="pill--timezone">Timezone: +3:30</span>
-        <span class="pill--local-time">Local Time: 15:00</span>
+        <span class="pill--timezone"
+          >Timezone: {{ user.location.timezone.offset }}</span
+        >
+        <span class="pill--local-time"
+          >Local Time: {{ getLocalTime(user.location.timezone.offset) }}</span
+        >
       </div>
 
-      <img src="{{ user.picture.thumbnail }}" alt="" />
+      <img src="{{ user.picture.large }}" alt="" />
 
       <p class="card-content--name">
         {{ user.name.title }} {{ user.name.first }} {{ user.name.last }}
       </p>
-      <p class="card-content--location">{{ user.location.city }}, COUNTRY</p>
+      <p class="card-content--location">
+        {{ user.location.city }}, {{ user.location.country }}
+      </p>
       <div class="icons">
-        <fa-icon [icon]="mailIcon"></fa-icon>
-        <fa-icon [icon]="phoneIcon"></fa-icon>
+        <fa-icon (click)="sendEmail(user.email)" [icon]="mailIcon"></fa-icon>
+        <fa-icon
+          (click)="telephoneLink(user.cell)"
+          [icon]="phoneIcon"
+        ></fa-icon>
       </div>
     </div>
   </div>
