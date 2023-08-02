@@ -10,8 +10,45 @@ import { faPhone } from '@fortawesome/free-solid-svg-icons';
 export class UserComponent implements OnInit {
   public mailIcon = faEnvelope;
   public phoneIcon = faPhone;
+  public userData: any = [];
 
   ngOnInit(): void {
-    console.log('onInit');
+    this.userData = [
+      {
+        name: { first: 'John', last: 'Doe', title: 'Mr/Ms' },
+        picture: {
+          thumbnail: 'https://randomuser.me/api/portraits/thumb/men/1.jpg',
+        },
+        location: { city: 'New York' },
+      },
+      {
+        name: { first: 'Alice', last: 'Smith', title: 'Mr/Ms' },
+        picture: {
+          thumbnail: 'https://randomuser.me/api/portraits/thumb/women/2.jpg',
+        },
+        location: { city: 'Los Angeles' },
+      },
+      {
+        name: { first: 'Michael', last: 'Johnson', title: 'Mr/Ms' },
+        picture: {
+          thumbnail: 'https://randomuser.me/api/portraits/thumb/men/3.jpg',
+        },
+        location: { city: 'Chicago' },
+      },
+      {
+        name: { first: 'Emily', last: 'Williams', title: 'Mr/Ms' },
+        picture: {
+          thumbnail: 'https://randomuser.me/api/portraits/thumb/women/4.jpg',
+        },
+        location: { city: 'Houston' },
+      },
+      {
+        name: { first: 'Daniel', last: 'Brown', title: 'Mr/Ms' },
+        picture: {
+          thumbnail: 'https://randomuser.me/api/portraits/thumb/men/5.jpg',
+        },
+        location: { city: 'San Francisco' },
+      },
+    ];
   }
 }
